@@ -1,0 +1,14 @@
+Description: Avoid the installation of scripts under /usr/bin directory. 
+Author: Josue Ortega <josue@debian.org>
+Last-Update: 2023-09-14
+
+--- a/setup.py
++++ b/setup.py
+@@ -74,7 +74,6 @@
+     ],
+     packages = ['dill','dill.tests'],
+     package_dir = {'dill':'dill', 'dill.tests':'dill/tests'},
+-    scripts=['scripts/undill','scripts/get_objgraph','scripts/get_gprof'],
+ )
+ 
+ # force python-, abi-, and platform-specific naming of bdist_wheel
