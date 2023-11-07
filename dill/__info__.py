@@ -1,9 +1,17 @@
-dill
-====
-serialize all of Python
+#!/usr/bin/env python
+#
+# Author: Mike McKerns (mmckerns @caltech and @uqfoundation)
+# Copyright (c) 2023 The Uncertainty Quantification Foundation.
+# License: 3-clause BSD.  The full license text is available at:
+#  - https://github.com/uqfoundation/dill/blob/master/LICENSE
+'''
+-----------------------------
+dill: serialize all of Python
+-----------------------------
 
 About Dill
-----------
+==========
+
 ``dill`` extends Python's ``pickle`` module for serializing and de-serializing
 Python objects to the majority of the built-in Python types. Serialization
 is the process of converting an object to a byte stream, and the inverse
@@ -34,58 +42,57 @@ https://uqfoundation.github.io/project/pathos/query.
 
 
 Major Features
---------------
+==============
+
 ``dill`` can pickle the following standard types:
 
-* none, type, bool, int, float, complex, bytes, str,
-* tuple, list, dict, file, buffer, builtin,
-* Python classes, namedtuples, dataclasses, metaclasses,
-* instances of classes,
-* set, frozenset, array, functions, exceptions
+    - none, type, bool, int, float, complex, bytes, str,
+    - tuple, list, dict, file, buffer, builtin,
+    - Python classes, namedtuples, dataclasses, metaclasses,
+    - instances of classes,
+    - set, frozenset, array, functions, exceptions
 
 ``dill`` can also pickle more 'exotic' standard types:
 
-* functions with yields, nested functions, lambdas,
-* cell, method, unboundmethod, module, code, methodwrapper,
-* methoddescriptor, getsetdescriptor, memberdescriptor, wrapperdescriptor,
-* dictproxy, slice, notimplemented, ellipsis, quit
+    - functions with yields, nested functions, lambdas,
+    - cell, method, unboundmethod, module, code, methodwrapper,
+    - methoddescriptor, getsetdescriptor, memberdescriptor, wrapperdescriptor,
+    - dictproxy, slice, notimplemented, ellipsis, quit
 
 ``dill`` cannot yet pickle these standard types:
 
-* frame, generator, traceback
+    - frame, generator, traceback
 
 ``dill`` also provides the capability to:
 
-* save and load Python interpreter sessions
-* save and extract the source code from functions and classes
-* interactively diagnose pickling errors
+    - save and load Python interpreter sessions
+    - save and extract the source code from functions and classes
+    - interactively diagnose pickling errors
 
 
 Current Release
-[![Downloads](https://static.pepy.tech/personalized-badge/dill?period=total&units=international_system&left_color=grey&right_color=blue&left_text=pypi%20downloads)](https://pepy.tech/project/dill)
-[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dill?color=blue&label=conda%20downloads)](https://anaconda.org/conda-forge/dill)
-[![Stack Overflow](https://img.shields.io/badge/stackoverflow-get%20help-black.svg)](https://stackoverflow.com/questions/tagged/dill)
----------------
+===============
+
 The latest released version of ``dill`` is available from:
+
     https://pypi.org/project/dill
 
 ``dill`` is distributed under a 3-clause BSD license.
 
 
 Development Version
-[![Support](https://img.shields.io/badge/support-the%20UQ%20Foundation-purple.svg?style=flat&colorA=grey&colorB=purple)](http://www.uqfoundation.org/pages/donate.html)
-[![Documentation Status](https://readthedocs.org/projects/dill/badge/?version=latest)](https://dill.readthedocs.io/en/latest/?badge=latest)
-[![Build Status](https://travis-ci.com/uqfoundation/dill.svg?label=build&logo=travis&branch=master)](https://travis-ci.com/github/uqfoundation/dill)
-[![codecov](https://codecov.io/gh/uqfoundation/dill/branch/master/graph/badge.svg)](https://codecov.io/gh/uqfoundation/dill)
--------------------
+===================
+
 You can get the latest development version with all the shiny new features at:
+
     https://github.com/uqfoundation
 
 If you have a new contribution, please submit a pull request.
 
 
 Installation
-------------
+============
+
 ``dill`` can be installed with ``pip``::
 
     $ pip install dill
@@ -100,20 +107,22 @@ For windows users, to optionally install session history tools::
 
 
 Requirements
-------------
+============
+
 ``dill`` requires:
 
-* ``python`` (or ``pypy``), **>=3.7**
-* ``setuptools``, **>=42**
+    - ``python`` (or ``pypy``), **>=3.7**
+    - ``setuptools``, **>=42**
 
 Optional requirements:
 
-* ``objgraph``, **>=1.7.2**
-* ``pyreadline``, **>=1.7.1** (on windows)
+    - ``objgraph``, **>=1.7.2**
+    - ``pyreadline``, **>=1.7.1** (on windows)
 
 
 Basic Usage
------------
+===========
+
 ``dill`` is a drop-in replacement for ``pickle``. Existing code can be
 updated to allow complete pickling using::
 
@@ -198,7 +207,8 @@ save the lambda object's state. A ``#`` marks when the object is actually stored
 
 
 More Information
-----------------
+================
+
 Probably the best way to get started is to look at the documentation at
 http://dill.rtfd.io. Also see ``dill.tests`` for a set of scripts that
 demonstrate how ``dill`` can serialize different Python objects. You can
@@ -215,7 +225,8 @@ an email (to **mmckerns at uqfoundation dot org**).
 
 
 Citation
---------
+========
+
 If you use ``dill`` to do research that leads to publication, we ask that you
 acknowledge use of ``dill`` by citing the following in your publication::
 
@@ -231,3 +242,45 @@ acknowledge use of ``dill`` by citing the following in your publication::
 Please see https://uqfoundation.github.io/project/pathos or
 http://arxiv.org/pdf/1202.1056 for further information.
 
+'''
+
+__version__ = '0.3.7'
+__author__ = 'Mike McKerns'
+
+__license__ = '''
+Copyright (c) 2004-2016 California Institute of Technology.
+Copyright (c) 2016-2023 The Uncertainty Quantification Foundation.
+All rights reserved.
+
+This software is available subject to the conditions and terms laid
+out below. By downloading and using this software you are agreeing
+to the following conditions.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+    - Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+
+    - Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+
+    - Neither the names of the copyright holders nor the names of any of
+      the contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+'''
